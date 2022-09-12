@@ -1,6 +1,6 @@
 - name: "Verify that required string variables are defined"
-  assert:
-    that: 
+  ansible.builtin.assert:
+    that:
       - required_variable is defined
       - required_variable | length > 0
       - required_variable != None
@@ -14,19 +14,20 @@
     - "{{ HARNESS_DELEGATE_NAME }}"
     - "{{ HARNESS_DELEGATE_PROFILE }}"
     - "{{ HARNESS_ACCOUNT }}"
-  no_log: True
-
-## HARNESS
+  no_log: true
 
 - name: Creating harness-delegate.yaml
-  template:
+  ansible.builtin.template:
     src: harness-delegate.j2
     dest: harness-delegate.yaml
+    mode: '0644'
 
 - name: Setup Harness
-  shell: kubectl apply -f harness-delegate.yaml
+  kubernetes.core.k8s:
+    state: present
+    src: harness-delegate.yaml
 
 - name: Deleting harness-delegate.yaml
-  file:
+  ansible.builtin.file:
     path: harness-delegate.yaml
     state: absent
