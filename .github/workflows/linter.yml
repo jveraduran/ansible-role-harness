@@ -6,7 +6,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  build:
+  Ansible-Lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,5 +14,4 @@ jobs:
       - name: Ansible Lint
         uses: ansible-community/ansible-lint-action@v6.5.2
         with:
-          path: "./tasks"  # <-- only one value is allowed
-
+          path: "./tasks"

@@ -14,9 +14,7 @@
     - "{{ HARNESS_DELEGATE_NAME }}"
     - "{{ HARNESS_DELEGATE_PROFILE }}"
     - "{{ HARNESS_ACCOUNT }}"
-  no_log: True
-
-## HARNESS
+  no_log: true
 
 - name: Creating harness-delegate.yaml
   template:
