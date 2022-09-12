@@ -23,7 +23,9 @@
     mode: '0644'
 
 - name: Setup Harness
-  ansible.builtin.shell: kubectl apply -f harness-delegate.yaml
+  kubernetes.core.k8s:
+    state: present
+    src: harness-delegate.yaml
 
 - name: Deleting harness-delegate.yaml
   ansible.builtin.file:
