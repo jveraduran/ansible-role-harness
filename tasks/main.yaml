@@ -1,6 +1,6 @@
 - name: "Verify that required string variables are defined"
   ansible.builtin.assert:
-    that: 
+    that:
       - required_variable is defined
       - required_variable | length > 0
       - required_variable != None
