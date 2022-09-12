@@ -1,5 +1,5 @@
 - name: "Verify that required string variables are defined"
-  assert:
+  ansible.builtin.assert:
     that: 
       - required_variable is defined
       - required_variable | length > 0
@@ -17,7 +17,7 @@
   no_log: true
 
 - name: Creating harness-delegate.yaml
-  template:
+  ansible.builtin.template:
     src: harness-delegate.j2
     dest: harness-delegate.yaml
 
