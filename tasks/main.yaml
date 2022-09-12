@@ -20,6 +20,7 @@
   ansible.builtin.template:
     src: harness-delegate.j2
     dest: harness-delegate.yaml
+    mode: '0644'
 
 - name: Setup Harness
   ansible.builtin.shell: kubectl apply -f harness-delegate.yaml
