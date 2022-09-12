@@ -36,9 +36,3 @@ Example Playbook
       HARNESS_ACCOUNT: "{{ lookup('env', 'HARNESS_ACCOUNT') }}"
 ```
 
-
-Author Information
-------------------
-
-- [César vergara](mailto:cvergarae@smu.cl)
-
